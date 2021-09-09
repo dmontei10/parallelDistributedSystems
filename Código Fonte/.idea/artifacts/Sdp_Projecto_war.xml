@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Sdp_Projecto:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Sdp_Projecto</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Sdp_Projecto.war">
+      <element id="artifact" artifact-name="Sdp_Projecto:war exploded" />
+    </root>
+  </artifact>
+</component>

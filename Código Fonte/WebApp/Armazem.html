@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Consulta Armazem</title>
+		
+		<script>
+			function getItemInfo(){
+				var id = document.getElementById('id').value;
+				
+				var ajaxRequest = new XMLHttpRequest();
+				ajaxRequest.onreadystatechange = function(){
+					if(ajaxRequest.readyState == 4){
+						if(ajaxRequest.status == 200){
+							var item = JSON.parse(ajaxRequest.responseText);
+							document.getElementById('name').value = item.name;
+							document.getElementById('quantity').value = item.quantity;
+							document.getElementById('description').value = item.description;
+						}
+					}			
+				}
+				ajaxRequest.open('GET', "http://localhost:8080/items/" + id);
+				ajaxRequest.send();
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Armazem</h1>
+		<p>(Informacao de Items)</p>
+		<p>Id:</p>
+		<p><input type="text" value="" id="id"><button type="button" onclick="getItemInfo()">Get</button></p>
+		<p>Nome:</p>
+		<input type="text" id="name">
+		<p>Quantidade:</p>
+		<input type="text" id="quantity">
+		<p>Descricao:</p>
+		<textarea id="description"></textarea>
+		<p><button type="button" onclick="setPersonInfo()">Get All Items</button></p>
+	</body>
+</html>
